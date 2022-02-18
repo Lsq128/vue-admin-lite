@@ -6,6 +6,13 @@ export default defineConfig((configEnv) => {
   console.log(configEnv);
   return {
     plugins: [vue()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "@/styles/scss/global.scss";',
+        },
+      },
+    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "src"),

@@ -11,12 +11,20 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
+    "types": ["naive-ui/volar"],
     "baseUrl": ".",
     "paths": {
-      "@/*":["src/*"],
-      "~/*":["./*"]
-    },
+      "@/*": ["src/*"],
+      "~/*": ["./*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "vite.config.*",
+    "src/typings/*.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "mock/**/*.ts",
+    "build/**/*.ts",
+    ".env-config.ts"
+  ]
 }

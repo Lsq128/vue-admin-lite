@@ -1,25 +1,27 @@
-import { defineConfig } from "vite";
+import { defineConfig, loadEnv } from "vite";
+import { setupVitePlugins, define } from "./build/vite";
 import * as path from "node:path";
-import vue from "@vitejs/plugin-vue";
-import WindiCSS from "vite-plugin-windicss";
-import { createHtmlPlugin } from "vite-plugin-html";
 
 export default defineConfig((configEnv) => {
-  console.log(configEnv);
+  const viteEnv = loadEnv(configEnv.mode, `.env.${configEnv.mode}`);
+
   return {
-    plugins: [
-      vue(),
-      WindiCSS(),
-      createHtmlPlugin({
-        minify: true,
-        inject: {
-          data: {
-            appName: "lite Admin",
-            appTitle: "lite Admin",
-          },
-        },
-      }),
-    ],
+    base: viteEnv.BASE_URL,
+    define,
+    plugins: setupVitePlugins(configEnv),
+    // plugins: [
+    //   vue(),
+    //   WindiCSS(),
+    //   createHtmlPlugin({
+    //     minify: true,
+    //     inject: {
+    //       data: {
+    //         appName: "lite Admin",
+    //         appTitle: "lite Admin",
+    //       },
+    //     },
+    //   }),
+    // ],
     css: {
       preprocessorOptions: {
         scss: {

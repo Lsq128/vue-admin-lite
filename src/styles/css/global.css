@@ -1,5 +1,7 @@
-@import './transition.css';
+@import "./transition.css";
 
-html, body, #app {
-	height: 100%;
+html,
+body,
+#app {
+  height: 100%;
 }

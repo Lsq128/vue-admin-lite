@@ -14,8 +14,8 @@ export default defineConfig((configEnv) => {
         minify: true,
         inject: {
           data: {
-            appName: "vue-admin-lite",
-            appTitle: "vue-admin-lite",
+            appName: "lite Admin",
+            appTitle: "lite Admin",
           },
         },
       }),
